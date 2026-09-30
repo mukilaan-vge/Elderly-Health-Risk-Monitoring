@@ -1,0 +1,207 @@
+{
+    "Logistic_Regression": {
+        "accuracy": 0.3846,
+        "precision_macro": 0.417,
+        "precision_weighted": 0.4673,
+        "recall_macro": 0.435,
+        "recall_weighted": 0.3846,
+        "f1_macro": 0.3886,
+        "f1_weighted": 0.3896,
+        "roc_auc_macro_ovr": 0.6241,
+        "classification_report": {
+            "0": {
+                "precision": 0.2222222222222222,
+                "recall": 0.5384615384615384,
+                "f1-score": 0.3146067415730337,
+                "support": 26.0
+            },
+            "1": {
+                "precision": 0.5405405405405406,
+                "recall": 0.26666666666666666,
+                "f1-score": 0.35714285714285715,
+                "support": 75.0
+            },
+            "2": {
+                "precision": 0.4883720930232558,
+                "recall": 0.5,
+                "f1-score": 0.49411764705882355,
+                "support": 42.0
+            },
+            "accuracy": 0.38461538461538464,
+            "macro avg": {
+                "precision": 0.4170449519286728,
+                "recall": 0.43504273504273505,
+                "f1-score": 0.3886224152582381,
+                "support": 143.0
+            },
+            "weighted avg": {
+                "precision": 0.46734228129576966,
+                "recall": 0.38461538461538464,
+                "f1-score": 0.38963937582576047,
+                "support": 143.0
+            }
+        },
+        "run_id": "77a58583ab8c493898a924af32017940",
+        "model_name": "Baseline_LogisticRegression",
+        "params": {
+            "max_iter": 1000,
+            "random_state": 42,
+            "class_weight": "balanced"
+        }
+    },
+    "Decision_Tree": {
+        "accuracy": 0.2238,
+        "precision_macro": 0.2592,
+        "precision_weighted": 0.2525,
+        "recall_macro": 0.3628,
+        "recall_weighted": 0.2238,
+        "f1_macro": 0.2002,
+        "f1_weighted": 0.1462,
+        "roc_auc_macro_ovr": 0.5587,
+        "classification_report": {
+            "0": {
+                "precision": 0.19658119658119658,
+                "recall": 0.8846153846153846,
+                "f1-score": 0.32167832167832167,
+                "support": 26.0
+            },
+            "1": {
+                "precision": 0.2,
+                "recall": 0.013333333333333334,
+                "f1-score": 0.025,
+                "support": 75.0
+            },
+            "2": {
+                "precision": 0.38095238095238093,
+                "recall": 0.19047619047619047,
+                "f1-score": 0.25396825396825395,
+                "support": 42.0
+            },
+            "accuracy": 0.22377622377622378,
+            "macro avg": {
+                "precision": 0.2591778591778592,
+                "recall": 0.36280830280830284,
+                "f1-score": 0.20021552521552521,
+                "support": 143.0
+            },
+            "weighted avg": {
+                "precision": 0.25252525252525254,
+                "recall": 0.22377622377622378,
+                "f1-score": 0.14619093028183938,
+                "support": 143.0
+            }
+        },
+        "run_id": "c9ec5930ddfc48a1a5f7f2a7c4952122",
+        "model_name": "Baseline_DecisionTree",
+        "params": {
+            "max_depth": 4,
+            "random_state": 42,
+            "class_weight": "balanced"
+        }
+    },
+    "RandomForest_v1_Shallow": {
+        "accuracy": 0.4126,
+        "precision_macro": 0.4573,
+        "precision_weighted": 0.5169,
+        "recall_macro": 0.4884,
+        "recall_weighted": 0.4126,
+        "f1_macro": 0.4158,
+        "f1_weighted": 0.4044,
+        "roc_auc_macro_ovr": 0.6284,
+        "classification_report": {
+            "0": {
+                "precision": 0.26153846153846155,
+                "recall": 0.6538461538461539,
+                "f1-score": 0.37362637362637363,
+                "support": 26.0
+            },
+            "1": {
+                "precision": 0.6206896551724138,
+                "recall": 0.24,
+                "f1-score": 0.34615384615384615,
+                "support": 75.0
+            },
+            "2": {
+                "precision": 0.4897959183673469,
+                "recall": 0.5714285714285714,
+                "f1-score": 0.5274725274725275,
+                "support": 42.0
+            },
+            "accuracy": 0.4125874125874126,
+            "macro avg": {
+                "precision": 0.4573413450260741,
+                "recall": 0.4884249084249084,
+                "f1-score": 0.4157509157509158,
+                "support": 143.0
+            },
+            "weighted avg": {
+                "precision": 0.5169451238416756,
+                "recall": 0.4125874125874126,
+                "f1-score": 0.4044032890186736,
+                "support": 143.0
+            }
+        },
+        "run_id": "828615426db64f2d8b0a733f135e5620",
+        "model_name": "RandomForest_v1_Shallow",
+        "params": {
+            "n_estimators": 50,
+            "max_depth": 4,
+            "min_samples_split": 5,
+            "class_weight": "balanced",
+            "random_state": 42
+        }
+    },
+    "RandomForest_v2_Champion": {
+        "accuracy": 0.4266,
+        "precision_macro": 0.4378,
+        "precision_weighted": 0.4894,
+        "recall_macro": 0.4603,
+        "recall_weighted": 0.4266,
+        "f1_macro": 0.424,
+        "f1_weighted": 0.4337,
+        "roc_auc_macro_ovr": 0.6018,
+        "classification_report": {
+            "0": {
+                "precision": 0.24528301886792453,
+                "recall": 0.5,
+                "f1-score": 0.3291139240506329,
+                "support": 26.0
+            },
+            "1": {
+                "precision": 0.5681818181818182,
+                "recall": 0.3333333333333333,
+                "f1-score": 0.42016806722689076,
+                "support": 75.0
+            },
+            "2": {
+                "precision": 0.5,
+                "recall": 0.5476190476190477,
+                "f1-score": 0.5227272727272727,
+                "support": 42.0
+            },
+            "accuracy": 0.42657342657342656,
+            "macro avg": {
+                "precision": 0.4378216123499143,
+                "recall": 0.4603174603174603,
+                "f1-score": 0.4240030880015988,
+                "support": 143.0
+            },
+            "weighted avg": {
+                "precision": 0.4894475164629538,
+                "recall": 0.42657342657342656,
+                "f1-score": 0.4337350526005505,
+                "support": 143.0
+            }
+        },
+        "run_id": "bd130beb456e4549ab2748d76a9264b6",
+        "model_name": "RandomForest_v2_Champion",
+        "params": {
+            "n_estimators": 120,
+            "max_depth": 6,
+            "min_samples_split": 4,
+            "min_samples_leaf": 2,
+            "class_weight": "balanced",
+            "random_state": 42
+        }
+    }
+}

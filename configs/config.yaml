@@ -1,0 +1,70 @@
+project:
+  name: "elderly-health-risk-mlops"
+  version: "1.0.0"
+  title: "Production-Grade MLOps Pipeline for Elderly Health Risk Monitoring"
+  description: "End-to-end MLOps pipeline for predicting geriatric health risk using the UCI National Poll on Healthy Aging (NPHA) dataset."
+
+data:
+  uci_id: 936
+  raw_csv_path: "data/raw/npha_elderly_health_risk.csv"
+  raw_metadata_path: "data/raw/dataset_metadata.json"
+  interim_csv_path: "data/interim/cleaned_health_risk.csv"
+  processed_train_path: "data/processed/train.csv"
+  processed_test_path: "data/processed/test.csv"
+  preprocessor_path: "models/preprocessor.joblib"
+  target_column: "Health_Risk_Level"
+  raw_target_column: "Number_of_Doctors_Visited"
+  raw_features:
+    - "Age"
+    - "Physical_Health"
+    - "Mental_Health"
+    - "Dental_Health"
+    - "Employment"
+    - "Stress_Keeps_Patient_from_Sleeping"
+    - "Medication_Keeps_Patient_from_Sleeping"
+    - "Pain_Keeps_Patient_from_Sleeping"
+    - "Bathroom_Needs_Keeps_Patient_from_Sleeping"
+    - "Uknown_Keeps_Patient_from_Sleeping"
+    - "Trouble_Sleeping"
+    - "Prescription_Sleep_Medication"
+    - "Race"
+    - "Gender"
+  engineered_features:
+    - "Sleep_Disturbance_Score"
+    - "Health_Deficit_Score"
+  test_size: 0.20
+  random_state: 42
+
+training:
+  model_type: "RandomForestClassifier"
+  model_path: "models/health_risk_model.joblib"
+  baseline_path: "models/baseline_model.joblib"
+  metrics_path: "models/evaluation_metrics.json"
+  confusion_matrix_path: "models/confusion_matrix.png"
+  feature_importance_path: "models/feature_importance.png"
+  random_forest:
+    n_estimators: 120
+    max_depth: 6
+    min_samples_split: 4
+    min_samples_leaf: 2
+    random_state: 42
+    class_weight: "balanced"
+  logistic_regression:
+    max_iter: 1000
+    random_state: 42
+    class_weight: "balanced"
+
+mlflow:
+  experiment_name: "Elderly-Health-Risk-Monitoring"
+  tracking_uri: "sqlite:///mlruns/mlflow.db"
+  artifact_location: "mlruns/artifacts"
+  registered_model_name: "ElderlyHealthRiskClassifier"
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  title: "Elderly Health Risk Prediction API"
+  version: "1.0.0"
+  log_path: "data/monitoring/api_requests.jsonl"
+  drift_report_path: "data/monitoring/drift_report.json"
+

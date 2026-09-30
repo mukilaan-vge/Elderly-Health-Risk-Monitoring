@@ -1,0 +1,56 @@
+{
+    "timestamp_utc": "2026-09-30T04:21:31.604051+00:00",
+    "overall_status": "STABLE",
+    "max_psi": 0.0976,
+    "mean_psi": 0.0529,
+    "retrain_recommended": false,
+    "recommendation": "Population distributions are consistent with training baseline. Model operating within expected parameters.",
+    "sample_counts": {
+        "reference_baseline_samples": 714,
+        "production_live_samples": 45
+    },
+    "monitored_features": {
+        "Physical_Health": {
+            "psi": 0.0577,
+            "reference_mean": 2.794,
+            "production_mean": 2.756,
+            "normalized_shift": 0.0428,
+            "status": "STABLE"
+        },
+        "Mental_Health": {
+            "psi": 0.081,
+            "reference_mean": 1.989,
+            "production_mean": 2.047,
+            "normalized_shift": 0.0614,
+            "status": "STABLE"
+        },
+        "Dental_Health": {
+            "psi": 0.0976,
+            "reference_mean": 3.01,
+            "production_mean": 2.977,
+            "normalized_shift": 0.0243,
+            "status": "STABLE"
+        },
+        "Pain_Keeps_Patient_from_Sleeping": {
+            "psi": 0.0,
+            "reference_mean": 0.218,
+            "production_mean": 0.419,
+            "normalized_shift": 0.4843,
+            "status": "STABLE"
+        },
+        "Bathroom_Needs_Keeps_Patient_from_Sleeping": {
+            "psi": 0.0,
+            "reference_mean": 0.504,
+            "production_mean": 0.605,
+            "normalized_shift": 0.2009,
+            "status": "STABLE"
+        },
+        "Trouble_Sleeping": {
+            "psi": 0.0812,
+            "reference_mean": 2.408,
+            "production_mean": 2.163,
+            "normalized_shift": 0.3654,
+            "status": "STABLE"
+        }
+    }
+}

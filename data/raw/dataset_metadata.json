@@ -1,0 +1,61 @@
+{
+    "dataset_name": "National Poll on Healthy Aging (NPHA)",
+    "source": "UCI Machine Learning Repository (University of Michigan / AARP / Michigan Medicine)",
+    "uci_id": 936,
+    "dataset_doi": "https://doi.org/10.3886/ICPSR37305.v1",
+    "fetch_method": "ucimlrepo",
+    "fetch_timestamp_utc": "2026-09-30T04:21:13.345895+00:00",
+    "file_path": "C:\\Users\\degod\\.gemini\\antigravity\\scratch\\elderly-health-risk-mlops\\data\\raw\\npha_elderly_health_risk.csv",
+    "file_size_bytes": 22484,
+    "sha256_checksum": "dec78ee6357fec20ef0035bd197e9a8b7724eb20e4497b1e7dd60d95c67577a8",
+    "num_instances": 714,
+    "num_features": 14,
+    "total_columns": 15,
+    "columns": [
+        "Age",
+        "Physical_Health",
+        "Mental_Health",
+        "Dental_Health",
+        "Employment",
+        "Stress_Keeps_Patient_from_Sleeping",
+        "Medication_Keeps_Patient_from_Sleeping",
+        "Pain_Keeps_Patient_from_Sleeping",
+        "Bathroom_Needs_Keeps_Patient_from_Sleeping",
+        "Uknown_Keeps_Patient_from_Sleeping",
+        "Trouble_Sleeping",
+        "Prescription_Sleep_Medication",
+        "Race",
+        "Gender",
+        "Number_of_Doctors_Visited"
+    ],
+    "column_types": {
+        "Age": "int64",
+        "Physical_Health": "int64",
+        "Mental_Health": "int64",
+        "Dental_Health": "int64",
+        "Employment": "int64",
+        "Stress_Keeps_Patient_from_Sleeping": "int64",
+        "Medication_Keeps_Patient_from_Sleeping": "int64",
+        "Pain_Keeps_Patient_from_Sleeping": "int64",
+        "Bathroom_Needs_Keeps_Patient_from_Sleeping": "int64",
+        "Uknown_Keeps_Patient_from_Sleeping": "int64",
+        "Trouble_Sleeping": "int64",
+        "Prescription_Sleep_Medication": "int64",
+        "Race": "int64",
+        "Gender": "int64",
+        "Number_of_Doctors_Visited": "int64"
+    },
+    "raw_target_column": "Number_of_Doctors_Visited",
+    "target_class_counts": {
+        "2": 372,
+        "3": 211,
+        "1": 131
+    },
+    "target_class_mapping": {
+        "1": "Low Risk (0-1 doctors visited)",
+        "2": "Moderate Risk (2-3 doctors visited)",
+        "3": "High Risk (4+ doctors visited)"
+    },
+    "missing_values_count": 0,
+    "suitability_rationale": "Authentic geriatric survey data focused on seniors aged 50-80+. Evaluates multi-domain health indicators (physical, mental, dental, sleep disturbances, prescription sleep aids, and socioeconomic factors) to classify elderly clinical risk and health utilization."
+}
