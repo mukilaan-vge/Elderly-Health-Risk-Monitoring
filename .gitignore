@@ -50,4 +50,5 @@ $RECYCLE.BIN/
 # Large or transient logs
 *.log
 mlruns/.trash
-
+# MLflow generated artifacts
+mlruns/*/models/

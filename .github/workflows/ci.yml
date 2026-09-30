@@ -1,0 +1,40 @@
+
+name: Elderly Health Risk MLOps CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: requirements.txt
+
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check project imports
+        run: |
+          python -c "from src.preprocessing.validator import validate_dataset"
+          python -c "from src.preprocessing.preprocessor import run_preprocessing_pipeline"
+          python -c "from src.training.train import train_models"
+          python -c "from src.api.app import app"
+
+      - name: Run automated tests
+        run: pytest -v

@@ -308,3 +308,13 @@ if __name__ == "__main__":
     print(f"Model Name: {out['registry']['registered_model_name']}")
     print(f"Version:    {out['registry']['current_active_version']}")
     print(f"Status:     {out['registry']['status']}")
+
+
+def train_models(config: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    """
+    Compatibility wrapper used by the main pipeline.
+
+    Calls the complete training, evaluation, MLflow tracking,
+    and model registry workflow.
+    """
+    return train_and_evaluate_all_models(config)

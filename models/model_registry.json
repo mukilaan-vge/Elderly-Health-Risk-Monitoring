@@ -2,14 +2,14 @@
     "registered_model_name": "ElderlyHealthRiskClassifier",
     "current_active_version": "v2",
     "champion_model_type": "RandomForestClassifier",
-    "champion_run_id": "bd130beb456e4549ab2748d76a9264b6",
+    "champion_run_id": "0b63b3c78b18417f9a1442b8068cd371",
     "status": "Production",
-    "updated_at_utc": "2026-09-30T04:21:30.846292+00:00",
+    "updated_at_utc": "2026-09-30T14:51:44.655589+00:00",
     "performance": {
-        "accuracy": 0.4266,
-        "f1_macro": 0.424,
-        "f1_weighted": 0.4337,
-        "roc_auc": 0.6018
+        "accuracy": 0.3916,
+        "f1_macro": 0.3785,
+        "f1_weighted": 0.4061,
+        "roc_auc": 0.5871
     },
     "hyperparameters": {
         "n_estimators": 120,
@@ -20,23 +20,23 @@
         "random_state": 42
     },
     "feature_names": [
-        "Age",
-        "Physical_Health",
-        "Mental_Health",
-        "Dental_Health",
-        "Employment",
-        "Stress_Keeps_Patient_from_Sleeping",
-        "Medication_Keeps_Patient_from_Sleeping",
-        "Pain_Keeps_Patient_from_Sleeping",
-        "Bathroom_Needs_Keeps_Patient_from_Sleeping",
-        "Uknown_Keeps_Patient_from_Sleeping",
-        "Trouble_Sleeping",
-        "Prescription_Sleep_Medication",
-        "Race",
-        "Gender",
-        "Sleep_Disturbance_Score",
-        "Health_Deficit_Score",
-        "High_Pain_Flag"
+        "numeric__Age",
+        "numeric__Physical_Health",
+        "numeric__Mental_Health",
+        "numeric__Dental_Health",
+        "numeric__Employment",
+        "numeric__Stress_Keeps_Patient_from_Sleeping",
+        "numeric__Medication_Keeps_Patient_from_Sleeping",
+        "numeric__Pain_Keeps_Patient_from_Sleeping",
+        "numeric__Bathroom_Needs_Keeps_Patient_from_Sleeping",
+        "numeric__Uknown_Keeps_Patient_from_Sleeping",
+        "numeric__Trouble_Sleeping",
+        "numeric__Prescription_Sleep_Medication",
+        "numeric__Race",
+        "numeric__Gender",
+        "numeric__Sleep_Disturbance_Score",
+        "numeric__Health_Deficit_Score",
+        "numeric__High_Pain_Flag"
     ],
     "target_classes": {
         "0": "Low Risk",
@@ -47,15 +47,15 @@
         {
             "version": "v1",
             "model_name": "RandomForest_v1_Shallow",
-            "accuracy": 0.4126,
-            "f1_macro": 0.4158,
+            "accuracy": 0.4406,
+            "f1_macro": 0.4395,
             "status": "Archived"
         },
         {
             "version": "v2",
             "model_name": "RandomForest_v2_Champion",
-            "accuracy": 0.4266,
-            "f1_macro": 0.424,
+            "accuracy": 0.3916,
+            "f1_macro": 0.3785,
             "status": "Production"
         }
     ]
