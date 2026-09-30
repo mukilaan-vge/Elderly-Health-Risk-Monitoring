@@ -97,7 +97,7 @@ def test_prediction_logger(tmp_path):
     assert "input_features" in record
     assert record["input_features"]["Age"] == 65
 
-    assert record["prediction"] == 2
+    assert record["predicted_class"] == 2
     assert record["model_version"] == "v2"
 
 
@@ -123,9 +123,9 @@ def test_read_prediction_logs(tmp_path):
     logs = read_prediction_logs(log_path)
 
     assert len(logs) == 3
-    assert logs[0]["prediction"] == 0
-    assert logs[1]["prediction"] == 1
-    assert logs[2]["prediction"] == 2
+    assert logs[0]["predicted_class"] == 0
+    assert logs[1]["predicted_class"] == 1
+    assert logs[2]["predicted_class"] == 2
 
 
 def test_prediction_count(tmp_path):
@@ -173,6 +173,6 @@ def test_monitoring_log_contains_required_fields(tmp_path):
 
     assert "timestamp_utc" in record
     assert "input_features" in record
-    assert "prediction" in record
+    assert "predicted_class" in record
     assert "risk_tier" in record
     assert "model_version" in record

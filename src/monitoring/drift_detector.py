@@ -12,7 +12,7 @@ import json
 import numpy as np
 import pandas as pd
 
-from src.utils.config_loader import load_config
+from src.utils.config import load_config
 from src.utils.logger import get_logger
 
 
