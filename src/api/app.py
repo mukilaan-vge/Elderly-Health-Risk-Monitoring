@@ -16,6 +16,7 @@ from typing import Any, Dict
 import joblib
 import pandas as pd
 from fastapi import FastAPI, HTTPException
+from fastapi.staticfiles import StaticFiles
 
 from src.api.schemas import (
     HealthRiskRequest,
@@ -626,3 +627,11 @@ def predict(
                 f"Error: {str(exc)}"
             ),
         )
+FRONTEND_PATH = resolve_path("frontend")
+
+if FRONTEND_PATH.exists():
+    app.mount(
+        "/dashboard",
+        StaticFiles(directory=FRONTEND_PATH, html=True),
+        name="dashboard",
+    )

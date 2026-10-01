@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b6e69" />
+  <title>Elderly Health Risk Monitoring</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-wrap">
+        <div class="brand-mark" aria-hidden="true">
+          <span class="pulse-line"></span>
+          <span class="brand-cross">+</span>
+        </div>
+        <div>
+          <div class="brand-name">Elderly Health Risk</div>
+          <div class="brand-subtitle">AI-powered monitoring</div>
+        </div>
+      </div>
+      <div class="system-status" id="systemStatus" aria-live="polite">
+        <span class="status-dot status-loading"></span>
+        <span id="statusText">Checking API…</span>
+        <span class="status-divider"></span>
+        <span>Model <strong id="modelVersion">—</strong></span>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">HEALTH RISK ASSESSMENT</p>
+          <h1>Turn health indicators into a clear risk signal.</h1>
+          <p class="hero-copy">Enter the available survey indicators below. The assessment is processed by the deployed Random Forest model through the FastAPI service.</p>
+        </div>
+        <div class="hero-badge">
+          <span class="shield-icon">✓</span>
+          <div>
+            <strong>Production model</strong>
+            <span>RandomForestClassifier</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="dashboard-grid">
+        <section class="card assessment-card">
+          <div class="card-heading">
+            <div>
+              <p class="section-kicker">INPUT</p>
+              <h2>Health assessment</h2>
+            </div>
+            <button type="button" class="text-button" id="resetButton">Reset</button>
+          </div>
+
+          <form id="assessmentForm" novalidate>
+            <div class="form-section">
+              <div class="form-section-title"><span>01</span><div><h3>Personal information</h3><p>Basic demographic and employment indicators.</p></div></div>
+              <div class="form-grid two-col">
+                <label class="field">
+                  <span>Age</span>
+                  <input name="Age" type="number" min="0" max="120" step="1" value="65" required />
+                  <small>Years</small>
+                </label>
+                <label class="field">
+                  <span>Gender</span>
+                  <select name="Gender" required>
+                    <option value="1">Category 1</option>
+                    <option value="2">Category 2</option>
+                  </select>
+                  <small>Dataset-coded category</small>
+                </label>
+                <label class="field">
+                  <span>Race</span>
+                  <select name="Race" required>
+                    <option value="1">Category 1</option><option value="2">Category 2</option><option value="3">Category 3</option><option value="4">Category 4</option><option value="5">Category 5</option>
+                  </select>
+                  <small>Dataset-coded category</small>
+                </label>
+                <label class="field">
+                  <span>Employment</span>
+                  <select name="Employment" required>
+                    <option value="1">Category 1</option><option value="2">Category 2</option><option value="3">Category 3</option><option value="4">Category 4</option>
+                  </select>
+                  <small>Dataset-coded value</small>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="form-section-title"><span>02</span><div><h3>Health indicators</h3><p>Self-reported physical, mental and dental health scores.</p></div></div>
+              <div class="form-grid three-col">
+                <label class="field"><span>Physical health</span><select name="Physical_Health" required><option value="1">1</option><option value="2">2</option><option value="3" selected>3</option><option value="4">4</option><option value="5">5</option></select><small>Survey score</small></label>
+                <label class="field"><span>Mental health</span><select name="Mental_Health" required><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4" selected>4</option><option value="5">5</option></select><small>Survey score</small></label>
+                <label class="field"><span>Dental health</span><select name="Dental_Health" required><option value="1">1</option><option value="2">2</option><option value="3" selected>3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select><small>Survey score</small></label>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="form-section-title"><span>03</span><div><h3>Sleep & medication</h3><p>Indicators used by the model to capture sleep disturbance and related factors.</p></div></div>
+              <div class="form-grid two-col">
+                <label class="field binary"><span>Stress affects sleep</span><select name="Stress_Keeps_Patient_from_Sleeping" required><option value="0">No</option><option value="1">Yes</option></select></label>
+                <label class="field binary"><span>Medication affects sleep</span><select name="Medication_Keeps_Patient_from_Sleeping" required><option value="0">No</option><option value="1">Yes</option></select></label>
+                <label class="field binary"><span>Pain affects sleep</span><select name="Pain_Keeps_Patient_from_Sleeping" required><option value="0">No</option><option value="1">Yes</option></select></label>
+                <label class="field binary"><span>Bathroom needs affect sleep</span><select name="Bathroom_Needs_Keeps_Patient_from_Sleeping" required><option value="0">No</option><option value="1">Yes</option></select></label>
+                <label class="field binary"><span>Unknown factor affects sleep</span><select name="Uknown_Keeps_Patient_from_Sleeping" required><option value="0">No</option><option value="1">Yes</option></select></label>
+                <label class="field"><span>Trouble sleeping</span><select name="Trouble_Sleeping" required><option value="1">Category 1</option><option value="2" selected>Category 2</option><option value="3">Category 3</option></select><small>Dataset-coded value</small></label>
+                <label class="field"><span>Prescription sleep medication</span><select name="Prescription_Sleep_Medication" required><option value="1">Category 1</option><option value="2">Category 2</option><option value="3" selected>Category 3</option></select><small>Dataset-coded value</small></label>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <div class="privacy-note"><span class="lock">⌁</span><span>Data is sent only to the local prediction API running with this project.</span></div>
+              <button class="primary-button" id="predictButton" type="submit">
+                <span class="button-label">Assess health risk</span>
+                <span class="button-spinner" aria-hidden="true"></span>
+                <span class="arrow">→</span>
+              </button>
+            </div>
+            <div class="form-error" id="formError" role="alert" hidden></div>
+          </form>
+        </section>
+
+        <aside class="results-column">
+          <section class="card result-card" id="resultCard">
+            <div class="card-heading result-heading">
+              <div><p class="section-kicker">MODEL OUTPUT</p><h2>Risk assessment</h2></div>
+              <span class="result-state" id="resultState">Waiting</span>
+            </div>
+
+            <div class="empty-result" id="emptyResult">
+              <div class="empty-orb"><span>+</span></div>
+              <h3>Ready for assessment</h3>
+              <p>Complete the form and run the model to see the predicted risk tier and class probabilities.</p>
+            </div>
+
+            <div class="prediction-result" id="predictionResult" hidden>
+              <div class="risk-banner" id="riskBanner">
+                <div class="risk-icon" id="riskIcon">!</div>
+                <div><span>Predicted risk level</span><strong id="riskLevel">—</strong></div>
+              </div>
+
+              <div class="confidence-row">
+                <div><span>Model confidence</span><strong id="confidenceValue">—</strong></div>
+                <span class="model-chip">Model <strong id="resultModelVersion">—</strong></span>
+              </div>
+
+              <div class="probability-section">
+                <div class="probability-header"><span>Probability distribution</span><span>100%</span></div>
+                <div class="probability-list" id="probabilityList"></div>
+              </div>
+
+              <div class="prediction-meta">
+                <div><span>Prediction class</span><strong id="predictionClass">—</strong></div>
+                <div><span>Service</span><strong>FastAPI</strong></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="card system-card">
+            <div class="system-header"><div><p class="section-kicker">SYSTEM</p><h2>Service health</h2></div><span class="live-pill" id="livePill">Checking</span></div>
+            <div class="system-grid">
+              <div><span>API status</span><strong id="apiHealth">Checking…</strong></div>
+              <div><span>Model loaded</span><strong id="modelLoaded">Checking…</strong></div>
+              <div><span>Active version</span><strong id="activeVersion">—</strong></div>
+            </div>
+            <p class="system-help" id="systemHelp">Connecting to the local FastAPI prediction service.</p>
+          </section>
+
+          <div class="disclaimer"><span>ⓘ</span><p>This is a machine-learning project demonstration, not a medical diagnosis or clinical decision tool.</p></div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>Production-Grade MLOps Pipeline for Elderly Health Risk Monitoring</span>
+      <span>Random Forest · MLflow · FastAPI · Docker</span>
+    </footer>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>
