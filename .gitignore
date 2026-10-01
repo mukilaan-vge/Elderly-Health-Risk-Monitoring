@@ -52,3 +52,6 @@ $RECYCLE.BIN/
 mlruns/.trash
 # MLflow generated artifacts
 mlruns/*/models/
+# Runtime monitoring logs
+data/monitoring/*.jsonl
+data/monitoring/drift_report.json
